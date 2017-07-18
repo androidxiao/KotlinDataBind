@@ -17,7 +17,7 @@ import java.util.*
  */
 class HomeListPopAdaper(val context: Context,val onItemClickListener:(position:Int)->Unit) : BaseAdapter() {
     var mItems = ArrayList<FlowItemModel>()
-    var binding: FlowItemBind? = null
+    lateinit var binding: FlowItemBind
 
     fun appendList(items: ArrayList<FlowItemModel>) {
         mItems = items
