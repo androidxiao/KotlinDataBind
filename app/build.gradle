@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+Properties props = new Properties()
+props.load(new FileInputStream(file(rootProject.file("config.gradle"))))
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        applicationId "com.kotlin.databinding.zhihu"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    kapt {
+        generateStubs = true
+    }
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile rootProject.ext.jjdxm_v4
+    compile rootProject.ext.jjdxm_v7
+    compile rootProject.ext.jjdxm_design
+    compile rootProject.ext.jjdxm_cardview
+    compile rootProject.ext.jjdxm_recyclerview
+    compile rootProject.ext.jjdxm_constraint
+    compile rootProject.ext.jjdxm_eventbus
+    compile rootProject.ext.jjdxm_gson
+    compile rootProject.ext.jjdxm_xrecyclerview
+    compile rootProject.ext.jjdxm_glide
+    compile rootProject.ext.jjdxm_okgo
+    compile rootProject.ext.jjdxm_coolrefreshview
+    compile rootProject.ext.jjdxm_kotlin_version
+    kapt "com.android.databinding:compiler:$data_binding_plugin_version"
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+}
+repositories {
+    mavenCentral()
+}

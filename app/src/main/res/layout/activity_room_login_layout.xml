@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data class=".RoomLoginBind">
+
+        <variable
+            name="roomModel"
+            type="com.kotlin.databinding.zhihu.model.RoomModel"/>
+
+        <variable
+            name="room"
+            type="com.kotlin.databinding.zhihu.model.Room"/>
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <include
+            android:id="@+id/id_header_info"
+            layout="@layout/title_header_layout"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.kotlin.databinding.zhihu.widget.CommonItemView
+            android:id="@+id/id_comm_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/id_header_info"
+            bind:hideCutLine="@{@bool/b_false}"
+            bind:setArrowVisible="@{@bool/b_false}"
+            bind:setHint="@{@string/s_tourist_number}"
+            bind:setIcon="@{@drawable/user_header}"
+            bind:setTitle="@{@string/s_tourist}"
+            />
+
+        <com.kotlin.databinding.zhihu.widget.CommonItemView
+            android:id="@+id/id_room_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/id_comm_info"
+            bind:hideCutLine="@{@bool/b_false}"
+            bind:setArrowVisible="@{@bool/b_false}"
+            bind:setHint="@{@string/s_room_status}"
+            bind:setHintColor="@{@color/red_color}"
+            bind:setIcon="@{@drawable/ic_room_status}"
+            bind:setTitle="@{@string/s_room_status}"
+            />
+
+        <com.kotlin.databinding.zhihu.widget.CommonEditItemView
+            android:id="@+id/id_edit_order"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/id_room_status"
+            bind:setEditHint="@{@string/s_default_str}"
+            bind:setIvIcon="@{@drawable/ic_order_no}"
+            bind:setTitle="@{@string/s_order_no}"
+            bind:editText="@{roomModel.orderNo}"
+            />
+
+
+        <com.kotlin.databinding.zhihu.widget.CommonEditItemView
+            android:id="@+id/id_edit_order1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/id_edit_order"
+            bind:setEditHint="@{@string/s_default_str}"
+            bind:setIvIcon="@{@drawable/ic_order_no}"
+            bind:setTitle="@{@string/s_order_no}"
+            bind:editText="@{roomModel.orderNo}"
+            />
+
+        <Button
+            android:id="@+id/id_btn_submit"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:text="提交"
+            android:gravity="center"
+            android:enabled="false"
+            app:layout_constraintTop_toBottomOf="@+id/id_edit_order1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

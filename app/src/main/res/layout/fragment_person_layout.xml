@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+              >
+
+    <data class="PersonBind">
+        <variable
+            name="personFragmentListener"
+            type="cn.kotlin.com.kotlinapp.fragment.PersonFragment"/>
+    </data>
+
+    <LinearLayout
+        android:id="@+id/id_ll_person"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:id="@+id/id_ll_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/person_gradient_color"
+            >
+
+            <ImageView
+                android:id="@+id/id_iv_header"
+                android:layout_width="61dp"
+                android:layout_height="61dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/user_header"/>
+
+            <TextView
+                android:id="@+id/id_tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="Android Bird(small)"
+                android:textColor="@color/white_color"
+                android:textSize="17sp"
+                />
+
+            <TextView
+                android:id="@+id/id_tv_phone_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white_color"
+                android:text="java/kotlin/databinding"
+                android:textSize="12sp"
+                />
+        </LinearLayout>
+
+        <com.kotlin.databinding.zhihu.widget.CommonItemView
+            android:id="@+id/id_comm_collect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            bind:setIcon="@{@drawable/ic_collect}"
+            bind:setTitle="@{@string/s_collect}"
+            bind:hideCutLine="@{@bool/b_false}"
+            bind:onClickListener="@{personFragmentListener}"/>
+
+        <include
+            layout="@layout/is_show_image_item"/>
+        <!--<com.kotlin.databinding.zhihu.widget.CommonItemView-->
+            <!--android:id="@+id/id_comm_delete"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--bind:setIcon="@{@drawable/ic_night_mode}"-->
+            <!--bind:setTitle="@{@string/s_night_model}"-->
+            <!--bind:hideCutLine="@{@bool/b_true}"-->
+            <!--bind:onClickListener="@{personFragmentListener}"/>-->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/cut_line_color"/>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></FrameLayout>
+    <View
+        android:id="@+id/my_page_message_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e5e5e5e5"
+        />
+
+    <RadioGroup
+        android:id="@+id/rg_btn"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white_color"
+        android:layout_height="60dp">
+
+        <RadioButton
+            android:id="@+id/rb_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableLeft="@null"
+            android:background="@null"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="@color/text_black_color"
+            android:layout_gravity="center_vertical"
+            android:checked="true"
+            android:drawableTop="@drawable/home_icon_selector"
+            android:drawablePadding="5dp"
+            android:buttonTint="@color/color_primary_dark"
+            android:text="首页"/>
+
+        <RadioButton
+            android:id="@+id/rb_product"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:button="@null"
+            android:drawableLeft="@null"
+            android:background="@null"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="@color/text_black_color"
+            android:drawableTop="@drawable/manage_icon_selector"
+            android:drawablePadding="5dp"
+            android:text="豆瓣"/>
+
+        <RadioButton
+            android:id="@+id/rb_person"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableLeft="@null"
+            android:background="@null"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="@color/text_black_color"
+            android:drawableTop="@drawable/money_icon_selector"
+            android:drawablePadding="5dp"
+            android:text="个人中心"/>
+
+    </RadioGroup>
+
+</LinearLayout>

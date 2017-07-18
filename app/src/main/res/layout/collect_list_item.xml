@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="CollectBind">
+
+       <!--<import type="com.kotlin.databinding.zhihu.utils.DateFormatUtils"/>-->
+        <import type="com.kotlin.databinding.zhihu.utils.DateFormatUtilsKT"/>
+
+        <variable
+            name="collectModel"
+            type="com.kotlin.databinding.zhihu.model.CollectRecomModel"/>
+
+    </data>
+    
+    <android.support.v7.widget.CardView
+        android:id="@+id/news_list_card_view"
+        style="@style/cardStyle"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="4dp">
+
+        <RelativeLayout
+            android:id="@+id/id_rl_collect"
+            style="@style/cardRelativeLayoutStyle"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:id="@+id/thumbnail_image"
+                style="@style/cardImageViewStyle"
+                bind:error="@{@drawable/ic_card_overflow}"
+                bind:imageUrl="@{collectModel.image_url}"
+                bind:isShowImage="@{@bool/b_true}"
+                tools:background="#d71345"
+                />
+
+            <TextView
+                android:id="@+id/question_title"
+                style="@style/cardQuestionTitleStyle"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/thumbnail_image"
+                android:layout_toLeftOf="@+id/card_share_overflow"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{collectModel.title}"
+                tools:text="我是标题我是标题我是标题我是标题我是标题我是标题我是标题我是标题"/>
+
+
+            <com.kotlin.databinding.zhihu.widget.TagGroup
+                android:id="@+id/title_label"
+                style="@style/TagGroup"
+                android:layout_alignBottom="@+id/thumbnail_image"
+                android:layout_toRightOf="@+id/thumbnail_image"
+                tools:text="label|label|label"/>
+
+            <TextView
+                android:id="@+id/daily_title"
+                style="@style/baseCardTextStyle"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/thumbnail_image"
+                android:gravity="bottom|right"
+                android:text="@{DateFormatUtilsKT.INSTANCE.stampToDate(collectModel.publication_date)}"
+                tools:text="我是日期"
+                />
+
+            <ImageView
+                android:id="@+id/card_share_overflow"
+                android:visibility="invisible"
+                style="@style/cardOverflowIconStyle"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</layout>
