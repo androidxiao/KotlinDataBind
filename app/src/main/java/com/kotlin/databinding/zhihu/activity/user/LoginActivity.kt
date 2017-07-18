@@ -19,8 +19,8 @@ import kotlinx.android.synthetic.main.title_header_layout.*
  */
 class LoginActivity : BaseActivity(){
 
-    var loginBind: LoginBind?=null
-    var userModel: UserModel?=null
+    lateinit var loginBind: LoginBind
+    lateinit var userModel: UserModel
     override fun beforeViewData() {
 
     }
@@ -39,13 +39,13 @@ class LoginActivity : BaseActivity(){
     }
 
     fun bindData(){
-        loginBind?.activity=this
-        loginBind?.userModel=userModel
-        userModel?.btnIsEnable(userModel!!)
+        loginBind.activity=this
+        loginBind.userModel=userModel
+        userModel.btnIsEnable(userModel)
     }
 
     fun btnIsEnable(isEnable:Boolean){
-        loginBind!!.loginBtn.isEnabled = isEnable
+        loginBind.loginBtn.isEnabled = isEnable
     }
 
     fun bindListener(){
